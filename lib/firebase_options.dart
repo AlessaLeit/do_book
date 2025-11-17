@@ -41,50 +41,17 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCKu2GPImHMG_xWKb6eVMeek8ceEHAN2oo',
-    appId: '1:265358153830:web:13cdaa2de02d070e5475a7',
-    messagingSenderId: '265358153830',
-    projectId: 'docalendar-35998',
-    authDomain: 'docalendar-35998.firebaseapp.com',
-    storageBucket: 'docalendar-35998.firebasestorage.app',
-    measurementId: 'G-NX2C775265',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB9D4XTXOpKvlhamLDwRF51DbWpgsJSUdw',
-    appId: '1:265358153830:android:f92465de90fdcaf65475a7',
-    messagingSenderId: '265358153830',
-    projectId: 'docalendar-35998',
-    storageBucket: 'docalendar-35998.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA-NDKrmG0gnKw26fsWp_NmpxxJ2aGC3WY',
-    appId: '1:265358153830:ios:92fac53e7652fcce5475a7',
-    messagingSenderId: '265358153830',
-    projectId: 'docalendar-35998',
-    storageBucket: 'docalendar-35998.firebasestorage.app',
-    iosClientId: '265358153830-oruh3v95tea7cl1og672ofba0e1sgkq7.apps.googleusercontent.com',
-    iosBundleId: 'com.example.flutterAplication1',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyA-NDKrmG0gnKw26fsWp_NmpxxJ2aGC3WY',
-    appId: '1:265358153830:ios:92fac53e7652fcce5475a7',
-    messagingSenderId: '265358153830',
-    projectId: 'docalendar-35998',
-    storageBucket: 'docalendar-35998.firebasestorage.app',
-    iosClientId: '265358153830-oruh3v95tea7cl1og672ofba0e1sgkq7.apps.googleusercontent.com',
-    iosBundleId: 'com.example.flutterAplication1',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCKu2GPImHMG_xWKb6eVMeek8ceEHAN2oo',
-    appId: '1:265358153830:web:48a77e5e24f517255475a7',
-    messagingSenderId: '265358153830',
-    projectId: 'docalendar-35998',
-    authDomain: 'docalendar-35998.firebaseapp.com',
-    storageBucket: 'docalendar-35998.firebasestorage.app',
-    measurementId: 'G-BT76FJKFXC',
   );
 }
