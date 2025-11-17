@@ -6,7 +6,7 @@
 
 ### Funcionalidades Principais
 
-- **Autenticação**: Tela de login e cadastro (simulado, sem backend real).
+- **Autenticação**: Tela de login e cadastro via Firebase Authentication.
 - **Gerenciamento de Mangás**:
   - Adicionar, editar e remover mangás.
   - Acompanhar volumes individuais.
@@ -16,7 +16,8 @@
   - Adicionar, editar e remover livros.
   - Status: Possuído, Lendo, Quero Ler.
 - **Interface Intuitiva**: Navegação por abas (Mangás e Livros), listas expansíveis para mangás agrupados por título.
-- **Banco de Dados**: SQLite local para persistência de dados (implementado, mas atualmente usa dados mockados na tela principal).
+- **Banco de Dados**: SQLite local para persistência de dados.
+- **Sincronização**: Serviços para sincronização de dados (mangás e livros) com Firebase Firestore.
 
 ### Tecnologias Utilizadas
 
@@ -24,26 +25,48 @@
 - **Dart**: Linguagem de programação.
 - **SQLite (sqflite)**: Banco de dados local.
 - **sqflite_common_ffi**: Suporte para plataformas desktop.
+- **Firebase Core**: Inicialização do Firebase.
+- **Firebase Auth**: Autenticação de usuários.
+- **Cloud Firestore**: Banco de dados NoSQL em nuvem.
+- **Provider**: Gerenciamento de estado.
+- **Shared Preferences**: Armazenamento local de preferências.
 - **table_calendar**: Biblioteca para calendários (não utilizada no código atual).
+- **Path**: Manipulação de caminhos de arquivos.
 
 ## Arquitetura do Projeto
 
-O projeto segue uma estrutura típica de Flutter com separação de responsabilidades:
+O projeto segue uma arquitetura MVC (Model-View-Controller) com separação de responsabilidades, utilizando Provider para gerenciamento de estado:
 
 ```
 lib/
 ├── main.dart                 # Ponto de entrada do app
+├── controllers/
+│   ├── authController.dart   # Controlador para autenticação
+│   ├── livroController.dart  # Controlador para livros
+│   ├── loginController.dart  # Controlador para login
+│   └── mangaController.dart  # Controlador para mangás
 ├── models/
-│   ├── manga.dart            # Modelo de dados para Mangá
-│   └── livro.dart            # Modelo de dados para Livro
+│   ├── livroModel.dart       # Modelo de dados para Livro
+│   ├── mangaModel.dart       # Modelo de dados para Mangá
+│   └── userModel.dart        # Modelo de dados para Usuário
+├── repositories/
+│   ├── authRepository.dart   # Repositório para operações de autenticação
+│   ├── livroRepository.dart  # Repositório para operações de livros
+│   └── mangaRepository.dart  # Repositório para operações de mangás
 ├── screens/
-│   ├── loginScreen.dart      # Tela de login
+│   ├── adicionarLivroScreen.dart  # Tela para adicionar/editar livro
+│   ├── adicionarMangaScreen.dart  # Tela para adicionar/editar mangá
 │   ├── cadastroScreen.dart   # Tela de cadastro
 │   ├── homeScreen.dart       # Tela principal com coleções
-│   ├── adicionarMangaScreen.dart  # Tela para adicionar/editar mangá
-│   └── adicionarLivroScreen.dart  # Tela para adicionar/editar livro
+│   └── loginScreen.dart      # Tela de login
+├── services/
+│   ├── authService.dart      # Serviço de autenticação Firebase
+│   ├── firebaseService.dart  # Serviço Firebase geral
+│   ├── livroSyncService.dart # Serviço de sincronização de livros
+│   ├── mangaSyncService.dart # Serviço de sincronização de mangás
+│   └── sessionService.dart   # Serviço de sessão
 ├── database/
-│   └── database_helper.dart  # Helper para operações no banco de dados
+│   └── databaseHelper.dart   # Helper para operações no banco de dados SQLite
 └── utils/
     ├── cores.dart            # Definições de cores
     └── validadores.dart      # Funções de validação
@@ -124,8 +147,7 @@ Para plataformas desktop (Windows/Linux/Mac), o sqflite_ffi é usado automaticam
 ## Melhorias Futuras
 
 - Integração completa com o banco de dados (remover dados mockados).
-- Implementação de autenticação real (Firebase ou similar).
-- Sincronização em nuvem.
+- Sincronização em nuvem (já parcialmente implementada com Firestore).
 - Funcionalidades avançadas: busca, filtros, estatísticas de leitura.
 - Suporte a capas de livros/mangás.
 - Calendário de leitura integrado (usando table_calendar).
